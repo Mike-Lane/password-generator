@@ -1,5 +1,18 @@
 // Assignment code here
+var allCases = (
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+)
 
+var allNumbers = (
+  "0123456789"
+)
+
+var specialCharacters = (
+  "!@#$%^&*()_+{}|:<>?./;[]\=-"
+)
+
+//variables 
+const lowerUpper
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
