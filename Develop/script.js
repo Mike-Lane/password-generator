@@ -1,17 +1,17 @@
 // Assignment code here
 
 //Constants
-const number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+","~", "?", "'", "|", "{", "}"];
 const alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+const number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+","~", "?", "'", "|", "{", "}"];
 
 // Variables
 var confirmLength = "";
-var confirmSpecialChar;
-var confirmNumChar;
-var confirmAlphaUpper;
 var confirmAlphaLower;
+var confirmAlphaUpper;
+var confirmNumChar;
+var confirmSpecialChar;
 
 // Prompt user for length of password 
 function generatePassword() {
@@ -25,13 +25,13 @@ function generatePassword() {
       //Alert number of characters chosen
       alert(`Your password will have ${confirmLength} characters`);
 
-    // Determine parameters of password 
+    // Determine which criteria to include in password 
     var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
     var confirmNumChar = confirm("Click OK if you would like to include numeric characters");    
     var confirmAlphaUpper = confirm("Click OK if you would like to include uppercase characters");
     var confirmAlphaLower = confirm("Click OK if you would like to include lowercase characters");
 
-    // Loop if answer is outside the parameters 
+    // Loop if answer is outside the parameters and ask again until at least one os chosen
     while(confirmAlphaUpper === false && confirmAlphaLower === false && confirmSpecialChar === false && confirmNumChar === false) {
       alert("You have to choose at least one option.");
       var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
@@ -42,7 +42,7 @@ function generatePassword() {
 
   var passwordCharacters = [];
 
-  //concatenates parameter selections
+  //concatenate criteria selections
   if (confirmSpecialChar) {
     
     passwordCharacters = passwordCharacters.concat(specialChar)
