@@ -1,11 +1,46 @@
 // Assignment code here
+
 //Arrays 
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
 var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+// Variables
+var confirmLength = "";
+var confirmSpecialChar;
+var confirmNumChar;
+var confirmAlphaUpper;
+var confirmAlphaLower;
 
+// Prompt user for length of password 
+function generatePassword() {
+  var confirmLength = (prompt("How many characters would you like in your password? Please enter a number between 8 and 128."));
+
+  // Loop if answer is outside the parameters 
+  while(confirmLength <= 7 || confirmLength >= 129) {
+      alert("Password length must be between 8-128 characters Try again");
+      var confirmLength = (prompt("How many characters would you like in your password? Please enter a number between 8 and 128."));
+      } 
+      //Alert number of characters chosen
+      alert(`Your password will have ${confirmLength} characters`);
+
+    // Determine parameters of password 
+    var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
+    var confirmNumChar = confirm("Click OK if you would like to include numeric characters");    
+    var confirmAlphaUpper = confirm("Click OK if you would like to include uppercase characters");
+    var confirmAlphaLower = confirm("Click OK if you would like to include lowercase characters");
+
+    // Loop if answer is outside the parameters 
+    while(confirmAlphaUpper === false && confirmAlphaLower === false && confirmSpecialChar === false && confirmNumChar === false) {
+      alert("You have to choose at least one option.");
+      var confirmSpecialChar = confirm("Click OK if you would like to include special characters");
+      var confirmNumChar = confirm("Click OK if you would like to include numeric characters");    
+      var confirmAlphaUpper = confirm("Click OK if you would like to include uppercase characters");
+      var confirmAlphaLower = confirm("Click OK if you would like to include lowercase characters");   
+  }
+}
+  
 
 
 // Get references to the #generate element
