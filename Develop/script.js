@@ -1,10 +1,10 @@
 // Assignment code here
 
-//Arrays 
-var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specialChar = ["!", "%", "&", ",", "*", "+", "-", ".", "/", "<", ">", "?","~"];
-var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+//Constants
+const number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+","~", "?", "'", "|", "{", "}"];
+const alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 // Variables
 var confirmLength = "";
@@ -38,9 +38,36 @@ function generatePassword() {
       var confirmNumChar = confirm("Click OK if you would like to include numeric characters");    
       var confirmAlphaUpper = confirm("Click OK if you would like to include uppercase characters");
       var confirmAlphaLower = confirm("Click OK if you would like to include lowercase characters");   
-  }
-}
+  };
+
+  var passwordCharacters = [];
+
+  //concatenates parameter selections
+  if (confirmSpecialChar) {
+    
+    passwordCharacters = passwordCharacters.concat(specialChar)
+  };
+
+  if (confirmNumChar) {
+    passwordCharacters = passwordCharacters.concat(number)
+  };
+    
+  if (confirmAlphaLower) {
+    passwordCharacters = passwordCharacters.concat(alphaLower)
+  };
+
+  if (confirmAlphaUpper) {
+    passwordCharacters = passwordCharacters.concat(alphaUpper)
+  } ;   
+
+  var randomPassword = "";
   
+  for (var i = 0; i < confirmLength; i++) {
+    randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+    console.log(randomPassword)
+  };
+  return randomPassword;
+};
 
 
 // Get references to the #generate element
