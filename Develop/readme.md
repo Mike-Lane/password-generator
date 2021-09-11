@@ -2,7 +2,7 @@ PASSWORD GENERATOR
 
 https://mike-lane.github.io/password-generator/
 
-
+<img src="https://github.com/Mike-Lane/password-generator/blob/main/Develop/assets/images/password_generator.png?raw=true" />
 
 I have been tasked with creating a password generator that fulfills the following requirements:
 
